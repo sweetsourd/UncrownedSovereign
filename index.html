@@ -241,16 +241,24 @@ button:active {
 .p2 .a{background-image:url('p2.jpg')}
 .t{
   line-height:1.3;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">Config.preloadImages = [
-	"first.jpg",
-	"p1.jpg",
-	"p2.jpg",
-	"p3.jpg",
-	"choose.jpg",
-	"he.jpg",
-	"be.jpg",
-	"ne.jpg"
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">const imagesToPreload = [
+  "first.jpg",
+  "p1.jpg",
+  "p2.jpg",
+  "p3.jpg",
+  "choose.jpg",
+  "he.jpg",
+  "be.jpg",
+  "ne.jpg"
 ];
+// 等引擎准备好
+$(document).on(":storyready", function () {
+  // 后台静默加载所有图片
+  imagesToPreload.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+});
 
 
 // ========================
