@@ -259,6 +259,12 @@ $(document).on(":storyready", function () {
     img.src = src;
   });
 });
+$(document).on(':storyready', function () {
+  if (!sessionStorage.getItem('hasRestarted')) {
+    sessionStorage.setItem('hasRestarted', 'true');
+    window.location.reload();
+  }
+});
 
 
 // ========================
